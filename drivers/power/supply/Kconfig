@@ -440,6 +440,24 @@ config CHARGER_TWL4030
 	help
 	  Say Y here to enable support for TWL4030 Battery Charge Interface.
 
+config CHARGER_LN8000
+	tristate "LN8000 Divider Charger Driver"
+	depends on I2C
+	default n
+	help
+	  Say Y here to enable support of ln8000 divider charger
+	  It is mainly used as divider charger for
+	  direct charge
+
+config CHARGER_LN8410
+	tristate "LN8410 Divider Charger Driver"
+	depends on I2C
+	default n
+	help
+	  Say Y here to enable support of ln8410 divider charger
+	  It is mainly used as divider charger for
+	  direct charge
+
 config CHARGER_LP8727
 	tristate "TI/National Semiconductor LP8727 charger driver"
 	depends on I2C
