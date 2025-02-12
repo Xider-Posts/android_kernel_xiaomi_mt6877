@@ -40,6 +40,7 @@
  #include "charger_class.h"
  #include "mtk_charger.h"
  #include "ln8000_charger.h"
+ #include "../../../misc/hwid/hwid.h"
  //#include <mt-plat/charger_type.h>
  
  #define LN8000_DUAL_CONFIG
@@ -2228,6 +2229,13 @@
  {
      struct ln8000_info *info;
      int ret = 0;
+     const char * buf = get_hw_sku();
+	 char *xaga = NULL;
+     if(ruby)
+            dev_err(&client->dev, "%s ++\n", __func__);
+     else{
+            return -ENODEV;
+     }
      dev_err(&client->dev, "ln8000 probe start!\n");
      /* detect device on connected i2c bus */
      ret = i2c_smbus_read_byte_data(client, LN8000_REG_DEVICE_ID);
